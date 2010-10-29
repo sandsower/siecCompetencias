@@ -55,7 +55,7 @@
    </div><!-- Menu izquierdo -->
    <div id="mitte"><!-- Contenido -->
        <h1>Crear Criterio</h1>
-       <form  method="post" action="/crearCrit">
+       <form  method="post" action="crearCrit.do">
            <table>
                <tr>
                    <td>Nombre:</td>

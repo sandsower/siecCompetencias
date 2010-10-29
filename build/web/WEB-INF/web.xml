@@ -1,12 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <web-app version="2.5" xmlns="http://java.sun.com/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd">
     <servlet>
-        <servlet-name>crearCrit</servlet-name>
-        <servlet-class>Servlet.crearCrit</servlet-class>
+        <servlet-name>crearCriterio</servlet-name>
+        <servlet-class>Servlet.crearCriterio</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>eliminarCriterio</servlet-name>
+        <servlet-class>Servlet.eliminarCriterio</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>modificarCriterio</servlet-name>
+        <servlet-class>Servlet.modificarCriterio</servlet-class>
     </servlet>
     <servlet-mapping>
-        <servlet-name>crearCrit</servlet-name>
-        <url-pattern>/criterios/crearCrit.do</url-pattern>
+        <servlet-name>crearCriterio</servlet-name>
+        <url-pattern>/criterios/crearCriterio</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>eliminarCriterio</servlet-name>
+        <url-pattern>/criterios/eliminarCriterio</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>modificarCriterio</servlet-name>
+        <url-pattern>/criterios/modificarCriterio</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

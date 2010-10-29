@@ -66,10 +66,10 @@
 	<div class="cuadcont">
             <p>Info de cuadro 2</p>
             <ul>
-		<li><a href="competencias/competencias.jsp">Competencias</a></li>
-                <li><a href="criterios/criterios.jsp">Criterios</a>
+		<li><a href="competencias.jsp">Competencias</a></li>
+                <li><a href="../criterios/criterios.jsp">Criterios</a>
                     <ul>
-                        <li><a href="criterios/crear.jsp">Crear Criterio</a></li>
+                        <li><a href="../criterios/crear.jsp">Crear Criterio</a></li>
                     </ul>
                 </li>
             </ul>

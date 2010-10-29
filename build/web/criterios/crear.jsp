@@ -55,7 +55,7 @@
    </div><!-- Menu izquierdo -->
    <div id="mitte"><!-- Contenido -->
        <h1>Crear Criterio</h1>
-       <form  method="post" action="crearCrit.do">
+       <form  method="post" action="crearCriterio">
            <table>
                <tr>
                    <td>Nombre:</td>
@@ -83,10 +83,10 @@
 	<div class="cuadcont">
             <p>Info de cuadro 2</p>
             <ul>
-		<li><a href="competencias/competencias.jsp">Competencias</a></li>
-                <li><a href="criterios/criterios.jsp">Criterios</a>
+		<li><a href="../competencias/competencias.jsp">Competencias</a></li>
+                <li><a href="criterios.jsp">Criterios</a>
                     <ul>
-                        <li><a href="criterios/crear.jsp">Crear Criterio</a></li>
+                        <li><a href="crear.jsp">Crear Criterio</a></li>
                     </ul>
                 </li>
             </ul>

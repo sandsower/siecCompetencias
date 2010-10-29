@@ -4,6 +4,7 @@
     Author     : lugubrenator
 --%>
 
+<%@page import="Clases.Competencias.Criterios"%>
 <%@page import="java.util.List"%>
 <%@page import="Clases.Competencias.Competencias"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -54,40 +55,46 @@
    </div><!-- Menu izquierdo -->
    <div id="mitte"><!-- Contenido -->
 
-      <h1>Lista de Competencias</h1>
-      <table>
+       <h1>Agregar Criterio a la competencia <% out.println(request.getParameter("nombre")); %></h1>
+
+       <form method="post">
+           Buscar<input type="text" name="nombre"/>&nbsp;<input type="submit" value="buscar"/><br/><br/>
+           <table>
                    <thead>
                         <tr>
-                                        <th width="100">Estado</th>
+                                        <th width="100">Seleccionar</th>
                                         <th width="100">Nombre </th>
                                         <th width="100">Descripcion</th>
-                                        <th width="100">Categoria</th>
+                                        <th width="100">Ponderacion</th>
                                         <th width="100" alt="Eliminar">Eliminar</th>
                                         <th width="100" alt="modificar">Modificar</th>
-                                        <th width="100" alt="Criterios">Criterios</th>
                        </tr>
                                     </thead>
                                     <tbody align="center">
                                         <tr>
                                         <%
-                                         Competencias com = new Competencias();
-                                         List<Competencias> competencia = com.obtenerCompetencias();
-                                         for(Competencias i: competencia)
+                                         Criterios cri = new Criterios();
+                                         List<Criterios> criterios = cri.obtenerCriterios();
+                                         for(Criterios i: criterios)
                                          {
                                              out.print("<tr>");
-                                             out.print("<td><input type=\"checkbox\" disabled></td>");
+                                             out.print("<td><input type=\"checkbox\"></td>");
                                              out.print("<td>"+i.getNombre()+"</td>");
                                              out.print("<td>"+i.getDescripcion()+"</td>");
-                                             out.print("<td>"+i.getIdCategoria()+"</td>");
-                                             out.print("<td><a href='eliminarCompetencia?id="+i.getIdCompetencia()+"' onClick='javascript: if(confirm('¿Esta seguro que desa borrar el registro?')){ return true; } else { return false;}'><img src='../images/delete.png'/></a></td>");
-                                             out.print("<td><a href='modificarCompetencia?id="+i.getIdCompetencia()+"'><img src='../images/page_edit.png'/></a></td>");
-                                             out.print("<td><a href='agregarCriterios.jsp?id="+i.getIdCompetencia()+",nombre="+i.getNombre()+""+"'><img src='../images/page_edit.png'/></a></td>");
+                                             out.print("<td>"+i.getPonderacion()+"</td>");
+                                             out.print("<td><a href='eliminarCriterio?id="+i.getId()+"' onClick='javascript: if(confirm('¿Esta seguro que desa borrar el registro?')){ return true; } else { return false;}'><img src='../images/delete.png'/></a></td>");
+                                             out.print("<td><a href='modificarCriterio?id="+i.getId()+"'><img src='../images/page_edit.png'/></a></td>");
                                         }
 
                                         %>
                                        </tr>
                                     </tbody>
                                 </table>
+
+                                       <input type="submit" value="Guardar"/>
+
+           </form>
+      
 
 
    </div><!-- Contenido -->
@@ -107,6 +114,17 @@
                         <li><a href="../criterios/crear.jsp">Crear Criterio</a></li>
                     </ul>
                 </li>
+            </ul>
+	</div>
+    </div>
+       <div class="cuadro">
+	<div class="theader">Criterios Seleccionados</div>
+	<div class="cuadcont">
+            
+            <ul>
+		<li>Criterio 1</li>
+                <li>Criterio 2</li>
+                <li>Criterio 3</li>
             </ul>
 	</div>
     </div>

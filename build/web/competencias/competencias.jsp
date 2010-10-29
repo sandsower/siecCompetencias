@@ -58,7 +58,7 @@
       <table>
                    <thead>
                         <tr>
-                                        <th width="100">idCompetencia</th>
+                                        <th width="100">Estado</th>
                                         <th width="100">Nombre </th>
                                         <th width="100">Descripcion</th>
                                         <th width="100">Categoria</th>
@@ -75,13 +75,13 @@
                                          for(Competencias i: competencia)
                                          {
                                              out.print("<tr>");
-                                             out.print("<td>"+i.getIdCompetencia()+"</td>");
+                                             out.print("<td><input type=\"checkbox\" disabled></td>");
                                              out.print("<td>"+i.getNombre()+"</td>");
                                              out.print("<td>"+i.getDescripcion()+"</td>");
                                              out.print("<td>"+i.getIdCategoria()+"</td>");
                                              out.print("<td><a href='eliminarCompetencia?id="+i.getIdCompetencia()+"' onClick='javascript: if(confirm('¿Esta seguro que desa borrar el registro?')){ return true; } else { return false;}'><img src='../images/delete.png'/></a></td>");
                                              out.print("<td><a href='modificarCompetencia?id="+i.getIdCompetencia()+"'><img src='../images/page_edit.png'/></a></td>");
-                                             out.print("<td><a href='agregarCriterios?id="+i.getIdCompetencia()+"'><img src='../images/page_edit.png'/></a></td>");
+                                             out.print("<td><a href='agregarCriterios.jsp?id="+i.getIdCompetencia()+",nombre="+i.getNombre()+""+"'><img src='../images/page_edit.png'/></a></td>");
                                         }
 
                                         %>

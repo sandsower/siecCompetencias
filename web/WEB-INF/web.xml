@@ -24,6 +24,10 @@
         <servlet-name>modificarCompetencia</servlet-name>
         <servlet-class>Servlet.modificarCompetencia</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>obtenerCriterio</servlet-name>
+        <servlet-class>Servlet.obtenerCriterio</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>crearCriterio</servlet-name>
         <url-pattern>/criterios/crearCriterio</url-pattern>
@@ -47,6 +51,10 @@
     <servlet-mapping>
         <servlet-name>modificarCompetencia</servlet-name>
         <url-pattern>/competencias/modificarCompetencia</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>obtenerCriterio</servlet-name>
+        <url-pattern>/criterios/obtenerCriterio</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

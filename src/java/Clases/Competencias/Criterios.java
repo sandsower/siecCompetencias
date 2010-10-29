@@ -129,8 +129,6 @@ public class Criterios {
         }
         return 0;
     }
-
-    
     public ArrayList obtenerCriterios (){
         try {
             Statement stmt = null;
@@ -166,6 +164,28 @@ public class Criterios {
             rs = stmt.executeQuery(SQL);
             while(rs.next()){
                 cri = new Criterios(rs.getInt("Criterio_ID"), rs.getString("Des_Criterio"), rs.getString("Descripcion"),rs.getInt("Ponderacion"));
+            }
+            return cri;
+        } catch (SQLException ex) {
+            System.out.println("SQL Exception: "+ ex.toString());
+        }
+        return null;
+    }
+
+   public Criterios obtenerCriterioXNombre (String xNombre){
+       
+        try {
+            Statement stmt = null;
+            ResultSet rs = null;
+            Criterios cri = null;
+            ConexionBD connect = new ConexionBD();
+            Connection con = connect.getConnect();
+            //SQL query command
+            String SQL = "SELECT * FROM tc_competencias WHERE DES_COMPETENCIA LIKE %"+xNombre+"%";
+            stmt = con.createStatement();
+            rs = stmt.executeQuery(SQL);
+            while(rs.next()){
+                cri = new Criterios(rs.getInt("Competencia_id"), rs.getString("Des_Competencia"), rs.getString("Descripcion"),rs.getInt("categoria_id"));
             }
             return cri;
         } catch (SQLException ex) {

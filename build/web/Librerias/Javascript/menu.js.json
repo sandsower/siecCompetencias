@@ -1,0 +1,13 @@
+/* 
+ * To change this template, choose Tools | Templates
+ * and open the template in the editor.
+ */
+//profesor
+{
+    "menu": [
+        {"label" : "Competencias", "url": "competencias.jsp"},
+        {"label" : "Reportes", "url": "reportes.jsp"},
+        {"label" : "Evaluaciones", "url": "evaluaciones.jsp"},
+        {"label" : "Estrategias", "url": "evaluaciones.jsp"}
+    ]
+}

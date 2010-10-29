@@ -1,0 +1,45 @@
+#todo{
+	cursor: default;
+	height:100%;
+	min-height: 100%;
+	overflow:hidden;
+	position:relative;
+	}
+#header{
+	-moz-background-clip: border;
+	-moz-background-inline-policy: continuous;
+	-moz-background-origin: padding;
+	height:45px;
+	background:#718BA6 url(../Imagenes/bg-header.gif) repeat-x scroll 0 0;
+	position:relative;
+	overflow:hidden;
+}
+.logo{
+	width:170px;
+	height:45px;
+	}
+#menuTop{
+	list-style:none;
+	float:none;
+}
+
+#menuTop li {
+	margin:0px;
+	padding:0px;
+	border:1px solid#CCCCCC;
+	float:left;
+	}
+	
+#menuTop li a {
+	display:block;
+	width:100px;
+	padding:4px 0;
+	text-decoration:none;
+	text-align:center;
+	font-size:11px;
+	color:#333;
+}
+#menuTop li a:hover {
+	color:white;
+	background-color:#003366;
+}

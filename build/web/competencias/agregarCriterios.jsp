@@ -6,6 +6,7 @@
 
 <%@page import="Clases.Competencias.Criterios"%>
 <%@page import="java.util.List"%>
+<%@page import="Clases.Competencias.Competencias"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
 <html lang="es">
@@ -21,7 +22,6 @@
 
 <div id="wrapper">
    <div id="header">
-
        <div id="desktopTitlebarWrapper">
 			<div id="desktopTitlebar">
 				<h1 class="hidden">SIEC</h1>
@@ -55,11 +55,14 @@
    </div><!-- Menu izquierdo -->
    <div id="mitte"><!-- Contenido -->
 
-       <h1>Lista de Criterios</h1>
-            <table>
+       <h1>Agregar Criterio a la competencia <% out.println(request.getParameter("nombre")); %></h1>
+
+       <form method="post">
+           Buscar<input type="text" name="nombre"/>&nbsp;<input type="submit" value="buscar"/><br/><br/>
+           <table>
                    <thead>
                         <tr>
-                                        <th width="100">idCriterio</th>
+                                        <th width="100">Seleccionar</th>
                                         <th width="100">Nombre </th>
                                         <th width="100">Descripcion</th>
                                         <th width="100">Ponderacion</th>
@@ -75,7 +78,7 @@
                                          for(Criterios i: criterios)
                                          {
                                              out.print("<tr>");
-                                             out.print("<td>"+i.getId()+"</td>");
+                                             out.print("<td><input type=\"checkbox\"></td>");
                                              out.print("<td>"+i.getNombre()+"</td>");
                                              out.print("<td>"+i.getDescripcion()+"</td>");
                                              out.print("<td>"+i.getPonderacion()+"</td>");
@@ -88,6 +91,12 @@
                                     </tbody>
                                 </table>
 
+                                       <input type="submit" value="Guardar"/>
+
+           </form>
+      
+
+
    </div><!-- Contenido -->
    <div id="menur"><!-- Menu derecho -->
    <div class="cuadro">
@@ -95,16 +104,27 @@
 	<div class="cuadcont">
             <p>Info de cuadro 2</p>
             <ul>
-		<li><a href="../competencias/competencias.jsp">Competencias</a>
+		<li><a href="competencias.jsp">Competencias</a>
                     <ul>
-                        <li><a href="../competencias/crear.jsp">Crear Criterio</a></li>
+                        <li><a href="crear.jsp">Crear Competencia</a></li>
                     </ul>
                 </li>
-                <li><a href="criterios.jsp">Criterios</a>
+                <li><a href="../criterios/criterios.jsp">Criterios</a>
                     <ul>
-                        <li><a href="crear.jsp">Crear Criterio</a></li>
+                        <li><a href="../criterios/crear.jsp">Crear Criterio</a></li>
                     </ul>
                 </li>
+            </ul>
+	</div>
+    </div>
+       <div class="cuadro">
+	<div class="theader">Criterios Seleccionados</div>
+	<div class="cuadcont">
+            
+            <ul>
+		<li>Criterio 1</li>
+                <li>Criterio 2</li>
+                <li>Criterio 3</li>
             </ul>
 	</div>
     </div>

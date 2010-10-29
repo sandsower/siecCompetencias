@@ -54,8 +54,8 @@
     </div>
    </div><!-- Menu izquierdo -->
    <div id="mitte"><!-- Contenido -->
-       <h1>Crear Criterio</h1>
-       <form  method="post" action="crearCriterio">
+       <h1>Crear Competencia</h1>
+       <form  method="post" action="crearCompetencia">
            <table>
                <tr>
                    <td>Nombre:</td>
@@ -66,8 +66,15 @@
                    <td><textarea cols="20" rows="4" name="descripcion"></textarea></td>
                </tr>
                <tr>
-                   <td>Ponderacion</td>
-                   <td><input type="text" name="ponderacion"/></td>
+                   <td>Categoria</td>
+                   <td><select name="categoria">
+                           <option value="1">Categoria 1</option>
+                           <option value="2">Categoria 2</option>
+                           <option value="3">Categoria 3</option>
+                           <option value="4">Categoria 4</option>
+                           <option value="5">Categoria 5</option>
+                           <option value="6">Categoria 1</option>
+                       </select></td>
                </tr>
                <tr>
                    <td><input type="submit" value="Crear"/></td>
@@ -83,14 +90,14 @@
 	<div class="cuadcont">
             <p>Info de cuadro 2</p>
             <ul>
-		<li><a href="../competencias/competencias.jsp">Competencias</a>
-                    <ul>
-                        <li><a href="../competencias/crear.jsp">Crear Criterio</a></li>
-                    </ul>
-                </li>
-                <li><a href="criterios.jsp">Criterios</a>
+		<li><a href="competencias.jsp">Competencias</a>
                     <ul>
                         <li><a href="crear.jsp">Crear Criterio</a></li>
+                    </ul>
+                </li>
+                <li><a href="../criterios/criterios.jsp">Criterios</a>
+                    <ul>
+                        <li><a href="../criterios/crear.jsp">Crear Criterio</a></li>
                     </ul>
                 </li>
             </ul>

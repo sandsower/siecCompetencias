@@ -69,8 +69,8 @@ public class Criterios {
                             ("Insert into tc_criterios(DES_CRITERIO,DESCRIPCION,PONDERACION)"
                             +  "VALUES(?,?,?)");
                     stmt1.setString(1, this.nombre);
-                    stmt1.setString(2, elCriterio.descripcion);
-                    stmt1.setInt(3, elCriterio.ponderacion);
+                    stmt1.setString(2, this.descripcion);
+                    stmt1.setInt(3, this.ponderacion);
                 int rows_updated = stmt1.executeUpdate();
             con.close();
             return rows_updated;
@@ -83,12 +83,40 @@ public class Criterios {
         }
         return 0;
     }
-    public int eliminarCriterio(int xId){
+    public int eliminarCriterio(String xId){
+        int id= Integer.parseInt(xId);
        ConexionBD connect = new ConexionBD();
        Connection con = connect.getConnect();
-        try {
+        if(con!= null){
+            try {
                 PreparedStatement stmt1 = (PreparedStatement) con.prepareStatement
-                            ("DELETE FROM tc_criterios WHERE id=?)");
+                            ("DELETE FROM tc_criterios WHERE CRITERIO_ID=?");
+                 stmt1.setInt(1, id);
+                 int rows_updated = stmt1.executeUpdate();
+            con.close();
+            return rows_updated;
+
+
+             }
+            catch (SQLException ex) {
+                System.out.println("SQL Exception: "+ ex.toString());
+            }
+
+        }
+        return 0;
+    }
+    public int modificarCriterio(Criterios elCriterio) throws SQLException{
+        ConexionBD connect = new ConexionBD();
+        Connection con = connect.getConnect();
+        if(con!=null){
+            try {
+                PreparedStatement stmt1 = (PreparedStatement) con.prepareStatement
+                            ("alter table update tc_criterios set(DES_CRITERIO,DESCRIPCION,PONDERACION)"
+                            +  "VALUES(?,?,?) where CRITERIO_ID=?");
+                    stmt1.setString(1, this.nombre);
+                    stmt1.setString(2, this.descripcion);
+                    stmt1.setInt(3, this.ponderacion);
+                    stmt1.setInt(4, this.id);
                 int rows_updated = stmt1.executeUpdate();
             con.close();
             return rows_updated;
@@ -96,45 +124,91 @@ public class Criterios {
             catch (SQLException ex) {
                 System.out.println("SQL Exception: "+ ex.toString());
             }
+
+
+        }
         return 0;
     }
-    public void modificarCriterio(){}
-
-    public List<Criterios> ObtenerCriterios() throws InstantiationException, IllegalAccessException{
-         String login = "root";
-        String password = "1597";
-        String url = "jdbc:mysql://localhost/siec";
-        Connection conn = null;
-    try {
-         Class.forName("com.mysql.jdbc.Driver").newInstance();
-                conn = (Connection) DriverManager.getConnection(url,login,password);
-         if (conn != null)
-         {
-
-
-          PreparedStatement stmt1 = (PreparedStatement) conn.prepareStatement("SELECT * FROM tc_criterios");
-            ResultSet result = stmt1.executeQuery();
-            List<Criterios> criterios = new ArrayList();
-            while(result.next())
-            {
-                Criterios criterio = new Criterios(Integer.parseInt(result.getString(1)),result.getString(2), result.getString(3),Integer.parseInt(result.getString(4)));
-                criterios.add(criterio);
+    public ArrayList obtenerCriterios (){
+        try {
+            Statement stmt = null;
+            ResultSet rs = null;
+            ConexionBD connect = new ConexionBD();
+            Connection con = connect.getConnect();
+            ArrayList cri = new ArrayList();
+            //SQL query command
+            String SQL = "SELECT * FROM tc_Criterios".toLowerCase();
+            stmt = con.createStatement();
+            rs = stmt.executeQuery(SQL);
+            while(rs.next()){
+                cri.add(new Criterios(rs.getInt("Criterio_ID"), rs.getString("Des_Criterio"), rs.getString("Descripcion"),rs.getInt("ponderacion")));
             }
-                return criterios;
-    }else
-    {
-    return null;
-    }
-    }
-    catch(SQLException ex) {
-         System.out.println(ex);
-         return null;
-    }
-    catch(ClassNotFoundException ex) {
-    System.out.println(ex);
-    return null;
+            return cri;
+        } catch (SQLException ex) {
+            System.out.println("SQL Exception: "+ ex.toString());
+        }
+        return null;
     }
 
+   public Criterios obtenerCriterio (String xId){
+       int id = Integer.parseInt(xId);
+        try {
+            Statement stmt = null;
+            ResultSet rs = null;
+            Criterios cri = null;
+            ConexionBD connect = new ConexionBD();
+            Connection con = connect.getConnect();
+            //SQL query command
+            String SQL = "SELECT * FROM Tc_Criterios WHERE Criterio_ID=".toLowerCase()+id;
+            stmt = con.createStatement();
+            rs = stmt.executeQuery(SQL);
+            while(rs.next()){
+                cri = new Criterios(rs.getInt("Criterio_ID"), rs.getString("Des_Criterio"), rs.getString("Descripcion"),rs.getInt("Ponderacion"));
+            }
+            return cri;
+        } catch (SQLException ex) {
+            System.out.println("SQL Exception: "+ ex.toString());
+        }
+        return null;
+    }
+
+   public Criterios obtenerCriterioXNombre (String xNombre){
+       
+        try {
+            Statement stmt = null;
+            ResultSet rs = null;
+            Criterios cri = null;
+            ConexionBD connect = new ConexionBD();
+            Connection con = connect.getConnect();
+            //SQL query command
+            String SQL = "SELECT * FROM tc_competencias WHERE DES_COMPETENCIA LIKE %"+xNombre+"%";
+            stmt = con.createStatement();
+            rs = stmt.executeQuery(SQL);
+            while(rs.next()){
+                cri = new Criterios(rs.getInt("Competencia_id"), rs.getString("Des_Competencia"), rs.getString("Descripcion"),rs.getInt("categoria_id"));
+            }
+            return cri;
+        } catch (SQLException ex) {
+            System.out.println("SQL Exception: "+ ex.toString());
+        }
+        return null;
+    }
+
+
+   @Override
+    public String toString() {
+        StringBuilder sb= new StringBuilder();
+        sb.append("id[").append(getId()).append("]");
+        sb.append("nombre[").append(getNombre()).append("]");
+        sb.append("descripcion[").append(getDescripcion()).append("]");
+        sb.append("Ponderacion[").append(getPonderacion()).append("]");
+        return sb.toString();
+    }
+
+
+    @Override
+        protected void finalize() throws Throwable {
+        super.finalize();
     }
 
 

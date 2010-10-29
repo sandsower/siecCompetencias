@@ -28,7 +28,7 @@
 				<div class="fr topbar">
 					<ul>
 						<li><a href="logout.jsp">Desconectarse</a></li>
-                                                <li>Bienvenido <span class="nameuser">Usuario</li>
+                                                <li>Bienvenido <span class="nameuser">Usuario</span></li>
 					</ul>
 				</div>
 			</div>
@@ -55,19 +55,20 @@
    </div><!-- Menu izquierdo -->
    <div id="mitte"><!-- Contenido -->
        <h1>Crear Criterio</h1>
-       <form  method="post" action="crearCriterio">
+       <form  method="post" action="modificarCriterio">
            <table>
+               <input type="hidden" name="id" value="${cri.id}"/>
                <tr>
                    <td>Nombre:</td>
-                   <td><input type="text" name="nombre"/></td>
+                   <td><input type="text" name="nombre" value="${cri.nombre}"/></td>
                </tr>
                <tr>
                    <td>Descripcion</td>
-                   <td><textarea cols="20" rows="4" name="descripcion"></textarea></td>
+                   <td><textarea cols="20" rows="4" name="descripcion" value="${cri.descripcion}"></textarea></td>
                </tr>
                <tr>
                    <td>Ponderacion</td>
-                   <td><input type="text" name="ponderacion"/></td>
+                   <td><input type="text" name="ponderacion" value="${cri.ponderacion}"/></td>
                </tr>
                <tr>
                    <td><input type="submit" value="Crear"/></td>
@@ -83,11 +84,7 @@
 	<div class="cuadcont">
             <p>Info de cuadro 2</p>
             <ul>
-		<li><a href="../competencias/competencias.jsp">Competencias</a>
-                    <ul>
-                        <li><a href="../competencias/crear.jsp">Crear Criterio</a></li>
-                    </ul>
-                </li>
+		<li><a href="../competencias/competencias.jsp">Competencias</a></li>
                 <li><a href="criterios.jsp">Criterios</a>
                     <ul>
                         <li><a href="crear.jsp">Crear Criterio</a></li>

@@ -27,7 +27,7 @@ public class BaseDeDatos {
             // cambiar el usuario "root" y la clave "la_clave" por las
             // adecuadas a la base de datos que estemos usando.
             conexion = DriverManager.getConnection (
-                "jdbc:mysql://localhost/siec","root", "13450811");
+                "jdbc:mysql://localhost/siec","root", "gameover");
 
             // Se crea un Statement, para realizar la consulta
             s = conexion.createStatement();

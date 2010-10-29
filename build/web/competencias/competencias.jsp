@@ -4,6 +4,8 @@
     Author     : lugubrenator
 --%>
 
+<%@page import="java.util.List"%>
+<%@page import="Clases.Competencias.Competencias"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
 <html lang="es">
@@ -52,11 +54,40 @@
    </div><!-- Menu izquierdo -->
    <div id="mitte"><!-- Contenido -->
 
-       <h1>Este es un encabezado H1</h1>
-    <p>Este es un parrafo. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut dignissim porttitor scelerisque. In consequat turpis sit amet mi fermentum dapibus. Nunc condimentum erat a dui laoreet placerat. Quisque nisl elit, auctor id ultricies vel, molestie et sem. Cras id nibh augue, non semper diam. Fusce non odio vitae ipsum sagittis mollis. Praesent pharetra sollicitudin sollicitudin. Aliquam aliquet, urna mollis eleifend placerat, enim nisi aliquet lacus, a convallis nibh sem sed sem. Etiam et ultrices odio. Suspendisse potenti. Cras odio leo, laoreet sed vulputate ac, viverra a velit. Suspendisse vel mauris at magna sagittis faucibus. Pellentesque semper congue velit. Fusce condimentum nibh malesuada risus vestibulum sit amet aliquet velit varius. Duis eget urna enim, eget elementum magna. Sed malesuada sollicitudin malesuada.</p>
-    <p>Este es otro parrafo. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut dignissim porttitor scelerisque. In consequat turpis sit amet mi fermentum dapibus. Nunc condimentum erat a dui laoreet placerat. Quisque nisl elit, auctor id ultricies vel, molestie et sem. Cras id nibh augue, non semper diam. Fusce non odio vitae ipsum sagittis mollis. Praesent pharetra sollicitudin sollicitudin. Aliquam aliquet, urna mollis eleifend placerat, enim nisi aliquet lacus, a convallis nibh sem sed sem. Etiam et ultrices odio. Suspendisse potenti. Cras odio leo, laoreet sed vulputate ac, viverra a velit. Suspendisse vel mauris at magna sagittis faucibus. Pellentesque semper congue velit. Fusce condimentum nibh malesuada risus vestibulum sit amet aliquet velit varius. Duis eget urna enim, eget elementum magna. Sed malesuada sollicitudin malesuada. </p>
+      <h1>Lista de Competencias</h1>
+      <table>
+                   <thead>
+                        <tr>
+                                        <th width="100">idCompetencia</th>
+                                        <th width="100">Nombre </th>
+                                        <th width="100">Descripcion</th>
+                                        <th width="100">Categoria</th>
+                                        <th width="100" alt="Eliminar">Eliminar</th>
+                                        <th width="100" alt="modificar">Modificar</th>
+                                        <th width="100" alt="Criterios">Criterios</th>
+                       </tr>
+                                    </thead>
+                                    <tbody align="center">
+                                        <tr>
+                                        <%
+                                         Competencias com = new Competencias();
+                                         List<Competencias> competencia = com.obtenerCompetencias();
+                                         for(Competencias i: competencia)
+                                         {
+                                             out.print("<tr>");
+                                             out.print("<td>"+i.getIdCompetencia()+"</td>");
+                                             out.print("<td>"+i.getNombre()+"</td>");
+                                             out.print("<td>"+i.getDescripcion()+"</td>");
+                                             out.print("<td>"+i.getIdCategoria()+"</td>");
+                                             out.print("<td><a href='eliminarCompetencia?id="+i.getIdCompetencia()+"' onClick='javascript: if(confirm('¿Esta seguro que desa borrar el registro?')){ return true; } else { return false;}'><img src='../images/delete.png'/></a></td>");
+                                             out.print("<td><a href='modificarCompetencia?id="+i.getIdCompetencia()+"'><img src='../images/page_edit.png'/></a></td>");
+                                             out.print("<td><a href='agregarCriterios?id="+i.getIdCompetencia()+"'><img src='../images/page_edit.png'/></a></td>");
+                                        }
 
-
+                                        %>
+                                       </tr>
+                                    </tbody>
+                                </table>
 
 
    </div><!-- Contenido -->
@@ -66,7 +97,11 @@
 	<div class="cuadcont">
             <p>Info de cuadro 2</p>
             <ul>
-		<li><a href="competencias.jsp">Competencias</a></li>
+		<li><a href="competencias.jsp">Competencias</a>
+                    <ul>
+                        <li><a href="crear.jsp">Crear Competencia</a></li>
+                    </ul>
+                </li>
                 <li><a href="../criterios/criterios.jsp">Criterios</a>
                     <ul>
                         <li><a href="../criterios/crear.jsp">Crear Criterio</a></li>

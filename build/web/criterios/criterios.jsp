@@ -56,18 +56,18 @@
    <div id="mitte"><!-- Contenido -->
 
        <h1>Lista de Criterios</h1>
-    <table>
-                                    <thead>
-                                    <tr>
+            <table>
+                   <thead>
+                        <tr>
                                         <th width="100">idCriterio</th>
                                         <th width="100">Nombre </th>
                                         <th width="100">Descripcion</th>
                                         <th width="100">Ponderacion</th>
                                         <th width="100" alt="Eliminar">Eliminar</th>
                                         <th width="100" alt="modificar">Modificar</th>
-                                    </tr>
+                       </tr>
                                     </thead>
-                                    <tbody>
+                                    <tbody align="center">
                                         <tr>
                                         <%
                                          Criterios cri = new Criterios();
@@ -95,7 +95,11 @@
 	<div class="cuadcont">
             <p>Info de cuadro 2</p>
             <ul>
-		<li><a href="../competencias/competencias.jsp">Competencias</a></li>
+		<li><a href="../competencias/competencias.jsp">Competencias</a>
+                    <ul>
+                        <li><a href="../competencias/crear.jsp">Crear Criterio</a></li>
+                    </ul>
+                </li>
                 <li><a href="criterios.jsp">Criterios</a>
                     <ul>
                         <li><a href="crear.jsp">Crear Criterio</a></li>

@@ -57,6 +57,7 @@
        <h1>Crear Criterio</h1>
        <form  method="post" action="modificarCriterio">
            <table>
+               <input type="hidden" name="id" value="${cri.id}"/>
                <tr>
                    <td>Nombre:</td>
                    <td><input type="text" name="nombre" value="${cri.nombre}"/></td>

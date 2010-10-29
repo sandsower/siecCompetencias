@@ -12,6 +12,18 @@
         <servlet-name>modificarCriterio</servlet-name>
         <servlet-class>Servlet.modificarCriterio</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>crearCompetencia</servlet-name>
+        <servlet-class>Servlet.crearCompetencia</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>eliminarCompetencia</servlet-name>
+        <servlet-class>Servlet.eliminarCompetencia</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>modificarCompetencia</servlet-name>
+        <servlet-class>Servlet.modificarCompetencia</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>crearCriterio</servlet-name>
         <url-pattern>/criterios/crearCriterio</url-pattern>
@@ -23,6 +35,18 @@
     <servlet-mapping>
         <servlet-name>modificarCriterio</servlet-name>
         <url-pattern>/criterios/modificarCriterio</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>crearCompetencia</servlet-name>
+        <url-pattern>/competencias/crearCompetencia</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>eliminarCompetencia</servlet-name>
+        <url-pattern>/competencias/eliminarCompetencia</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>modificarCompetencia</servlet-name>
+        <url-pattern>/competencias/modificarCompetencia</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

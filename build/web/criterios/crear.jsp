@@ -83,7 +83,11 @@
 	<div class="cuadcont">
             <p>Info de cuadro 2</p>
             <ul>
-		<li><a href="../competencias/competencias.jsp">Competencias</a></li>
+		<li><a href="../competencias/competencias.jsp">Competencias</a>
+                    <ul>
+                        <li><a href="../competencias/crear.jsp">Crear Criterio</a></li>
+                    </ul>
+                </li>
                 <li><a href="criterios.jsp">Criterios</a>
                     <ul>
                         <li><a href="crear.jsp">Crear Criterio</a></li>

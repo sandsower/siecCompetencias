@@ -26,7 +26,7 @@
 				<div class="fr topbar">
 					<ul>
 						<li><a href="logout.jsp">Desconectarse</a></li>
-                                                <li>Bienvenido <span class="nameuser">Usuario</li>
+                                                <li>Bienvenido <span class="nameuser">Usuario</span></li>
 					</ul>
 				</div>
 			</div>
@@ -68,6 +68,9 @@
             <p>Info de cuadro 2</p>
             <ul>
 		<li><a href="competencias/competencias.jsp">Competencias</a></li>
+                 <ul>
+                        <li><a href="competencias/crear.jsp">Crear Criterio</a></li>
+                    </ul>
                 <li><a href="criterios/criterios.jsp">Criterios</a>
                     <ul>
                         <li><a href="criterios/crear.jsp">Crear Criterio</a></li>

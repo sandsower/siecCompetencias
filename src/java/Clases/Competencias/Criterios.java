@@ -105,7 +105,30 @@ public class Criterios {
         }
         return 0;
     }
-    public void modificarCriterio(){}
+    public int modificarCriterio(Criterios elCriterio) throws SQLException{
+        ConexionBD connect = new ConexionBD();
+        Connection con = connect.getConnect();
+        if(con!=null){
+            try {
+                PreparedStatement stmt1 = (PreparedStatement) con.prepareStatement
+                            ("alter table update tc_criterios set(DES_CRITERIO,DESCRIPCION,PONDERACION)"
+                            +  "VALUES(?,?,?) where CRITERIO_ID=?");
+                    stmt1.setString(1, this.nombre);
+                    stmt1.setString(2, this.descripcion);
+                    stmt1.setInt(3, this.ponderacion);
+                    stmt1.setInt(4, this.id);
+                int rows_updated = stmt1.executeUpdate();
+            con.close();
+            return rows_updated;
+             }
+            catch (SQLException ex) {
+                System.out.println("SQL Exception: "+ ex.toString());
+            }
+
+
+        }
+        return 0;
+    }
 
     
     public ArrayList obtenerCriterios (){
@@ -151,7 +174,22 @@ public class Criterios {
         return null;
     }
 
-    
+
+   @Override
+    public String toString() {
+        StringBuilder sb= new StringBuilder();
+        sb.append("id[").append(getId()).append("]");
+        sb.append("nombre[").append(getNombre()).append("]");
+        sb.append("descripcion[").append(getDescripcion()).append("]");
+        sb.append("Ponderacion[").append(getPonderacion()).append("]");
+        return sb.toString();
+    }
+
+
+    @Override
+        protected void finalize() throws Throwable {
+        super.finalize();
+    }
 
 
 }

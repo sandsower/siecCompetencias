@@ -66,7 +66,7 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("\t\t\t\t<div class=\"fr topbar\">\n");
       out.write("\t\t\t\t\t<ul>\n");
       out.write("\t\t\t\t\t\t<li><a href=\"logout.jsp\">Desconectarse</a></li>\n");
-      out.write("                                                <li>Bienvenido <span class=\"nameuser\">Usuario</li>\n");
+      out.write("                                                <li>Bienvenido <span class=\"nameuser\">Usuario</span></li>\n");
       out.write("\t\t\t\t\t</ul>\n");
       out.write("\t\t\t\t</div>\n");
       out.write("\t\t\t</div>\n");
@@ -108,6 +108,9 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("            <p>Info de cuadro 2</p>\n");
       out.write("            <ul>\n");
       out.write("\t\t<li><a href=\"competencias/competencias.jsp\">Competencias</a></li>\n");
+      out.write("                 <ul>\n");
+      out.write("                        <li><a href=\"competencias/crear.jsp\">Crear Criterio</a></li>\n");
+      out.write("                    </ul>\n");
       out.write("                <li><a href=\"criterios/criterios.jsp\">Criterios</a>\n");
       out.write("                    <ul>\n");
       out.write("                        <li><a href=\"criterios/crear.jsp\">Crear Criterio</a></li>\n");

@@ -141,7 +141,7 @@ public class Criterios {
             stmt = con.createStatement();
             rs = stmt.executeQuery(SQL);
             while(rs.next()){
-                cri.add(new Criterios(rs.getInt("Criterio_ID"), rs.getString("Des_Criterio"), rs.getString("Descripcion"),rs.getInt("ponderacion")));
+                cri.add(new Criterios(rs.getInt("Criterio_ID"), rs.getString("Des_Criterio"), rs.getString("Descripcion"),rs.getInt("Ponderacion")));
             }
             return cri;
         } catch (SQLException ex) {

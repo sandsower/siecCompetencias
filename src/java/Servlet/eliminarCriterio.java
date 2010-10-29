@@ -61,23 +61,17 @@ public class eliminarCriterio extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
     throws ServletException, IOException{
-        processRequest(request, response);
         String id = request.getParameter("id");
-
         Criterios criterio = new Criterios();
-            int res = criterio.eliminarCriterio(id);
-
-            if(res > 0){
-           RequestDispatcher view = request.getRequestDispatcher("criterios/criterios.jsp");
-           view.forward(request, response);
+        int res = criterio.eliminarCriterio(id);
+        RequestDispatcher view = null;
+        if(res > 0){
+           view = request.getRequestDispatcher("criterios.jsp");
        }
        else{
-           RequestDispatcher view = request.getRequestDispatcher("../error.jsp");
-           view.forward(request, response);
+           view = request.getRequestDispatcher("../error.jsp");
        }
-        
-        
-        
+        view.forward(request, response);
     } 
 
     /** 
